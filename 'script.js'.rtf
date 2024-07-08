@@ -54,5 +54,31 @@ function createCards() \{\
         cardElement.innerHTML = `\
             <div>$\{card.description\}</div>\
             <div class="card-hint">$\{card.hint\}</div>\
-            <div class="\
+            <div class="card-strategy">$\{card.strategy\}</div>\
+        `;\
+        cardElement.addEventListener('click', () => playCard(index, cardElement));\
+        cardContainer.appendChild(cardElement);\
+    \});\
+\}\
+\
+function playCard(index, cardElement) \{\
+    if (cardElement.classList.contains('flipped') || currentRound > totalRounds) return;\
+\
+    const card = cards[index];\
+    cardElement.classList.add('flipped');\
+    cardElement.innerHTML += `<div>Effect: $\{card.effect\}</div>`;\
+\
+    updatePosition(card.effect);\
+    updateScore(card.effect);\
+    currentRound++;\
+\
+    if (currentRound <= totalRounds) \{\
+        roundInfo.textContent = `Round: $\{currentRound\} / $\{totalRounds\}`;\
+    \} else \{\
+        endGame();\
+    \}\
+\}\
+\
+function updatePosition(effect) \{\
+\
 }
