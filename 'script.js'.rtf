@@ -95,7 +95,13 @@ function updateScore(effect) \{\
 function endGame() \{\
     roundInfo.textContent = 'Game Over';\
     if (position > 60) \{\
-        gameResult.textContent = 'Victory! Your popul\
+        gameResult.textContent = 'Victory! Your populist message resonated with the median voter.';\
+    \} else \{\
+        gameResult.textContent = 'Defeat. The establishment maintained its grip on the median voter.';\
+    \}\
+    gameResult.innerHTML += `<br>Final Score: $\{score\}`;\
+   \
+\
 \
 \
 }
