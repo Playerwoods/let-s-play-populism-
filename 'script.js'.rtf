@@ -80,5 +80,22 @@ function playCard(index, cardElement) \{\
 \}\
 \
 function updatePosition(effect) \{\
+    position += effect;\
+    position = Math.max(0, Math.min(100, position));\
+    divider.style.left = `$\{position\}%`;\
+\}\
+\
+function updateScore(effect) \{\
+    if (effect > 0) \{\
+        score += effect;\
+        playerScore.textContent = `Populist Influence: $\{score\}`;\
+    \}\
+\}\
+\
+function endGame() \{\
+    roundInfo.textContent = 'Game Over';\
+    if (position > 60) \{\
+        gameResult.textContent = 'Victory! Your popul\
+\
 \
 }
